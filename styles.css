@@ -1,0 +1,47 @@
+body {
+    background-color: #f4f7fb;
+    font-family: 'Poppins', sans-serif;
+    color: #243447;
+    margin: 0;
+    padding: 40px;
+}
+
+.container {
+    background-color: white;
+    max-width: 800px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    color: #174a7e;
+    text-align: center;
+    font-size: 36px;
+}
+
+h2 {
+    color: #2678a5;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.profile-photo {
+    width: 200px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+a {
+    color: #2678a5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
