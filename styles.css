@@ -45,3 +45,63 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+/* Buttons and text input */
+
+input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+}
+
+button {
+    padding: 10px 18px;
+    background-color: #2678a5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+button:hover {
+    background-color: #174a7e;
+}
+
+/* Dark mode */
+
+body.dark-theme {
+    background-color: #102a43;
+    color: white;
+}
+
+body.dark-theme .container {
+    background-color: #193a55;
+}
+
+body.dark-theme h1,
+body.dark-theme h2 {
+    color: #9ee6ec;
+}
+
+body.dark-theme p {
+    color: white;
+}
+
+body.dark-theme a {
+    color: #9ee6ec;
+}
+
+body.dark-theme a:hover {
+    color: white;
+}
+
+body.dark-theme button {
+    background-color: #9ee6ec;
+    color: #102a43;
+}
+
+body.dark-theme button:hover {
+    background-color: #ffffff;
+}
