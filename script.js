@@ -27,3 +27,66 @@ function changeTheme() {
 }
 
 themeButton.addEventListener("click", changeTheme);
+
+
+const goals = ["Learn JavaScript", "Practice Git"];
+
+const goalForm = document.getElementById("goal-form");
+const goalInput = document.getElementById("goal-input");
+const goalList = document.getElementById("goal-list");
+const goalCount = document.getElementById("goal-count");
+const goalMessage = document.getElementById("goal-message");
+
+function renderGoals() {
+    goalList.replaceChildren();
+
+    goals.forEach(function(goal, index) {
+        const item = document.createElement("li");
+        const label = document.createElement("span");
+
+        label.textContent = goal;
+        item.append(label);
+
+       
+const removeButton = document.createElement("button");
+
+removeButton.type = "button";
+removeButton.textContent = "Remove";
+
+removeButton.setAttribute(
+    "aria-label",
+    "Remove " + goal
+);
+
+removeButton.addEventListener("click", function() {
+    goals.splice(index, 1);
+    renderGoals();
+});
+
+item.append(removeButton);
+
+        goalList.append(item);
+    });
+
+    goalCount.textContent = "Goals: " + goals.length;
+}
+
+renderGoals();
+
+goalForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const text = goalInput.value.trim();
+
+    if (text === "") {
+        goalMessage.textContent = "Enter a goal first.";
+        return;
+    }
+
+    goals.push(text);
+    renderGoals();
+
+    goalInput.value = "";
+    goalMessage.textContent = "Goal added.";
+    goalInput.focus();
+});

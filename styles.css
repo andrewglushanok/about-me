@@ -105,3 +105,35 @@ body.dark-theme button {
 body.dark-theme button:hover {
     background-color: #ffffff;
 }
+
+/* Learning Goals Section */
+
+#goal-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#goal-list {
+    padding-left: 20px;
+}
+
+#goal-list li {
+    margin-bottom: 12px;
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+#goal-list button {
+    margin-left: 15px;
+}
+
+#goal-count {
+    font-weight: bold;
+}
+
+#goal-message {
+    margin-top: 10px;
+}
