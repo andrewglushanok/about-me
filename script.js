@@ -48,30 +48,58 @@ function renderGoals() {
         const label = document.createElement("span");
 
         label.textContent = goal.text;
-        item.append(label);
+
+        label.classList.toggle("goal-done", goal.done);
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = goal.done;
+
+        checkbox.setAttribute(
+            "aria-label",
+            "Complete " + goal.text
+        );
+
+        checkbox.addEventListener("change", function() {
+            goal.done = checkbox.checked;
+            renderGoals();
+        });
+
+        item.append(checkbox, label);
 
        
-const removeButton = document.createElement("button");
+        const removeButton = document.createElement("button");
 
-removeButton.type = "button";
-removeButton.textContent = "Remove";
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
 
-removeButton.setAttribute(
-    "aria-label",
-    "Remove " + goal.text
-);
+        removeButton.setAttribute(
+            "aria-label",
+            "Remove " + goal.text
+        );
 
-removeButton.addEventListener("click", function() {
-    goals.splice(index, 1);
-    renderGoals();
-});
+        removeButton.addEventListener("click", function() {
+            goals.splice(index, 1);
+            renderGoals();
+        });
 
-item.append(removeButton);
+        item.append(removeButton);
 
         goalList.append(item);
     });
 
-    goalCount.textContent = "Goals: " + goals.length;
+    const total = goals.length;
+
+    const completed = goals.filter(function(goal) {
+        return goal.done === true;
+    }).length;
+
+    const remaining = total - completed;
+
+    goalCount.textContent =
+        "Total: " + total +
+        " | Completed: " + completed +
+        " | Remaining: " + remaining;
 }
 
 renderGoals();

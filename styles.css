@@ -137,3 +137,15 @@ body.dark-theme button:hover {
 #goal-message {
     margin-top: 10px;
 }
+
+/* Completed learning goals */
+
+.goal-done {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+#goal-list input[type="checkbox"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
