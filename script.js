@@ -29,7 +29,10 @@ function changeTheme() {
 themeButton.addEventListener("click", changeTheme);
 
 
-const goals = ["Learn JavaScript", "Practice Git"];
+const goals = [
+    { text: "Learn JavaScript", done: false },
+    { text: "Practice Git", done: true }
+];
 
 const goalForm = document.getElementById("goal-form");
 const goalInput = document.getElementById("goal-input");
@@ -44,7 +47,7 @@ function renderGoals() {
         const item = document.createElement("li");
         const label = document.createElement("span");
 
-        label.textContent = goal;
+        label.textContent = goal.text;
         item.append(label);
 
        
@@ -55,7 +58,7 @@ removeButton.textContent = "Remove";
 
 removeButton.setAttribute(
     "aria-label",
-    "Remove " + goal
+    "Remove " + goal.text
 );
 
 removeButton.addEventListener("click", function() {
@@ -83,10 +86,11 @@ goalForm.addEventListener("submit", function(event) {
         return;
     }
 
-    goals.push(text);
+    goals.push({ text: text, done: false });
     renderGoals();
 
     goalInput.value = "";
     goalMessage.textContent = "Goal added.";
     goalInput.focus();
 });
+
